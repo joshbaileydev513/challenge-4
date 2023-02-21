@@ -1,3 +1,30 @@
+* {
+    font-family: sans-serif;
+    background-color: lightblue;
+}
+
+button {
+    background-color: antiquewhite;
+}
+
+button:hover {
+    background-color: black;
+    color: antiquewhite;
+}
+
+.scores {
+    text-align: right;
+}
+
+.timer {
+    text-align: right;
+}
+
+.start {
+    text-align: center;
+    padding: 20px 20px 20px;
+}
+
 .hide {
     display: none;
 }

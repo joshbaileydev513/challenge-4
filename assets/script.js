@@ -4,6 +4,7 @@
 // import { question1, question2, question3, question4, question5, question6, question7, question8, question9, question10 } from "assets/questions.js";
 
 var quizTimer = 60;
+var currentQuestion = 0;
 
 function wrongAnswer() {
     // create function to take away 6 sec's for every wrong answer
