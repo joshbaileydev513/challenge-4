@@ -5,11 +5,16 @@
 
 button {
     background-color: antiquewhite;
+    border-radius: 40%;
+    font-size: medium;
 }
 
 button:hover {
     background-color: black;
     color: antiquewhite;
+    border-radius: 40%;
+    font-size: medium;
+    border: 2px solid antiquewhite;
 }
 
 .scores {
@@ -31,5 +36,5 @@ button:hover {
 
 #question {
     display: block;
-    color: aqua;
+    color: black;
 }

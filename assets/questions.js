@@ -83,5 +83,5 @@ var question10 = {
 }
 
 
-export { question1, question2, question3, question4, question5, question6, question7, question8, question9, question10 };
+// export { question1, question2, question3, question4, question5, question6, question7, question8, question9, question10 };
 // Now that the game is over with, you are presented with a score based of the questions you answered along with adding your initials (3 Letter combo A-Z). That score is then saved in the highscores.html page for viewing
