@@ -1,7 +1,7 @@
 // This page is going to be used for the main JS logic that will serve as a bridge beteween the scores/questions
 
 // Psuedocode for the structure of the coding test - 10 questions - 60 seconds total - getting a question wrong is minus 6 seconds. Game is over ONCE: 1. the time limit is reached 2. all questions are answered before time limit is reached
-import { question1, question2, question3, question4, question5, question6, question7, question8, question9, question10 } from "assets/questions.js";
+// import { question1, question2, question3, question4, question5, question6, question7, question8, question9, question10 } from "assets/questions.js";
 
 var quizTimer = 60;
 
@@ -22,6 +22,31 @@ function timerStart() {
     var downloadTimer = setInterval(function(){
         if(quizTimer <= 0){
           clearInterval(downloadTimer);
+          window.alert("The time limit has been reached. GAME OVER!");
+        // ^created prompt message that pops up once the time limit is reached (hits 0) before all of the questions are answered^  
+
+        // function storeName() {
+        //     // Initials storage after timer runs out 2-3 characters in length
+        //     var userInitials = window.prompt("Please add your initials to be saved in the highscores").toLowerCase(); 
+            
+        //     // Looping through user input-making sure only numeric values between 8-128 are present
+        //     if (containsOnlyNumbers(userInitials)){
+        //       // success
+        //       // user entered numbers- now checking initials are between 2-3 characters long 
+        //       userInitials = parseInt(userInitials)
+        //       if (userInitials >= 2 && userInitials <= 3) {
+        //       // user has entered an acceptable initials length between 2-3
+        //         userInitialsResult = userInitials;
+        //       } else {
+        //         window.alert("Please enter letters or numbers between 2-3 characters in length")
+        //         generateHighscore();
+        //       }
+        //     } else {
+        //       window.alert("Please enter letters/number values only")
+        //       generateHighscore();
+        //     }
+
+
         }
         document.getElementById("time").innerHTML = quizTimer;
         console.log(document.getElementById("time").innerHTML);
@@ -29,7 +54,7 @@ function timerStart() {
     }, 1000);
 }  
 
-// ^create prompt message that pops up if the time limit is reached (hits 0) before all of the questions are answered^
+
 
 
 
