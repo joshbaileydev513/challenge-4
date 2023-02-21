@@ -1,0 +1,1 @@
+// This is the JS code for the highscores page - After each game is played, a players score is added to the list & is put in order from highest to lowest along with the 3 letter combination AKA intials (A-Z)
