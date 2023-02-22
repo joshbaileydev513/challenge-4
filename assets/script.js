@@ -79,8 +79,11 @@ function generateHighscore(initials) {
 function setUpHighscores() {
     console.log("test");
     var storedNames = JSON.parse(localStorage.getItem("scores"));
-
-    document.getElementById("winners-scores").innerHTML = storedNames;
+    var winners = "";
+    for (var i = 0; i < storedNames.length; i++) {
+        winners = winners + storedNames[i].userInitials + " " + storedNames[i].userScores + "\n";
+    }
+    document.getElementById("winners-scores").innerHTML = winners;
 }
 
 
