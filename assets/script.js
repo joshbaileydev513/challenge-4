@@ -1,7 +1,6 @@
 // This page is going to be used for the main JS logic that will serve as a bridge beteween the scores/questions
 
 // Psuedocode for the structure of the coding test - 10 questions - 60 seconds total - getting a question wrong is minus 6 seconds. Game is over ONCE: 1. the time limit is reached 2. all questions are answered before time limit is reached
-// import { question1, question2, question3, question4, question5, question6, question7, question8, question9, question10 } from "assets/questions.js";
 
 var quizTimer = 60;
 var currentQuestion = 0;
@@ -78,7 +77,7 @@ function timerStart() {
 
 var questions = [
     {
-        question: "Arrays in JavaScript are defined by which of the following statements?",
+        question: "Question One: Arrays in JavaScript are defined by which of the following statements?",
         answers: ["It is an ordered list of values", "It is an ordered list of objects", "It is an ordered list of strings","It is an ordered list of functions"],
         correctAnswer: "It is an ordered list of values",
     },
@@ -86,7 +85,7 @@ var questions = [
     // Question 2/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
     
     {
-        question: "Javascript is an _______ language",
+        question: "Question Two: Javascript is an _______ language",
         answers: ["Object-Oriented", "Object-Based", "Procedural","Static"],
         correctAnswer: "Object-Based",
     },
@@ -94,7 +93,7 @@ var questions = [
     // Question 3/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
     
     {
-        question: "Which of the following keywords is used to define a variable in Javascript?",
+        question: "Question Three: Which of the following keywords is used to define a variable in Javascript?",
         answers: ["var", "let", "Both A & B","Yoo here's a variable dude"],
         correctAnswer: "Both A & B",
     },
@@ -102,7 +101,7 @@ var questions = [
     // Question 4/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
     
    {
-        question: "Which function is used to serialize an object into a JSON string in Javascript?",
+        question: "Question Four: Which function is used to serialize an object into a JSON string in Javascript?",
         answers: ["stringify()", "parse()", "convert()","serialization()"],
         correctAnswer: "stringify()",
     },
@@ -110,7 +109,7 @@ var questions = [
     // Question 5/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
     
     {
-        question: " How do you stop an interval timer in Javascript?",
+        question: "Question Five: How do you stop an interval timer in Javascript?",
         answers: ["clearTimer", "intervalOver", "timerStop","clearInterval"],
         correctAnswer: "clearInterval",
     },
@@ -118,7 +117,7 @@ var questions = [
     // Question 6/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
     
      {
-        question: "Which symbol is used separate JavaScript statements?",
+        question: "Question Six: Which symbol is used separate JavaScript statements?",
         answers: ["Comma (,)", "Colon (:)", "Hyphen (_)", "Semicolon (;)"],
         correctAnswer: "Semicolon (;)",
     },
@@ -126,15 +125,15 @@ var questions = [
     // Question 7/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
     
      {
-        question: "What is the tag we use to put Javascript inside HTML?",
-        answers: ["'<js>'", "'<javascript>'", "'<script>'","'<scripting>'"],
+        question: "Question Seven: What is the tag we use to put Javascript inside HTML?",
+        answers: ["js", "javascript", "script","scripting"],
         correctAnswer: "'<script>'",
     },
     
     // Question 8/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
     
      {
-        question: "DOM stands for ____?",
+        question: "Question Eight: DOM stands for ____?",
         answers: ["Document Object Model", "Document Object Manipulation", "Document Objective Model","It's short for Dominic, the creator of the DOM"],
         correctAnswer: "Document Object Model",
     },
@@ -142,7 +141,7 @@ var questions = [
     // Question 9/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
     
     {
-        question: "Which method is used for debuging purposes in javascript?",
+        question: "Question Nine: Which method is used for debuging purposes in javascript?",
         answers: ["console.message(hello)", "console.log(hello)", "log(hello)","message(hello)"],
         correctAnswer: "console.log()",
     },
@@ -150,7 +149,7 @@ var questions = [
     // Question 10/10 - timer is live. Once answered you finihsed with the coding test. Your score from this question is added to your scores from questions 1-9 to get the total score. 
     
      {
-        question: "Which of the following type of variables takes precedence over other if names are same?",
+        question: "Question Ten: Which of the following type of variables takes precedence over other if names are same?",
         answers: ["Global", "Main", "Local", "Preceding"],
         correctAnswer: "Local",
     },

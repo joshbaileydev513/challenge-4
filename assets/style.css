@@ -3,6 +3,12 @@
     background-color: lightblue;
 }
 
+.answer-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 button {
     background-color: antiquewhite;
     border-radius: 40%;
