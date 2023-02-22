@@ -32,9 +32,11 @@ Or you can view the live page here: https://joshbaileydev513.github.io/challenge
 
 ## Usage
 
-To use the main functionality of this page, you will click on the start button which will then be followed by timed coding qusetions. When you answer a question correct, you are then presented with another question. When an answer is incorrect, a deduction of time is made from the remaining time as a penalty. When all qustions are answered or the timer reaches 0, the game is over. This is when the secondary fucntionality comes along and you recieve your score. You are then prompted for your initials to save both of those on the High Score page. This High Score page can be found in the top left of the page at all times for viewing. 
+To use the main functionality of this page, you will click on the start button which will then be followed by timed coding questions. When you answer a question correct, you are then presented with another question. When an answer is incorrect, a deduction of time is made from the remaining time as a penalty (6 seconds). When all qustions are answered or the timer reaches 0, the game is over. This is when the secondary fucntionality comes along and you recieve your score. You are then prompted for your initials (2-3 character combination of A-Z & 0-9) to save both of those on the High Score page. This High Score page can be found in the top left of the page at all times for viewing. 
 
-<!-- ![Deployed Page](assets/.PNG) NEED LIVE PICTURE HERE -->
+There is a reset quiz button that will reset your score and questions, which will bring you back to the start. 
+
+![Deployed Page](assets/images/coding-quiz-live.PNG) NEED LIVE PICTURE HERE
 
 Additionally, you can find the live page at this link: https://joshbaileydev513.github.io/challenge-4/
 

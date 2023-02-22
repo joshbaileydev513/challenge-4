@@ -4,10 +4,11 @@
 
 var quizTimer = 60;
 var currentQuestion = 0;
+var userScore = 0;
 
 function wrongAnswer() {
-    // create function to take away 6 sec's for every wrong answer
-}   
+    quizTimer -= 6;
+}
 
 function displayQuestion(num) {
     document.getElementById("question-title").innerHTML = questions[num].question;
@@ -18,13 +19,20 @@ function displayQuestion(num) {
 }
 
 function answerSelected(answer) {
-    if (questions[currentQuestion].answers[answer] ===  questions[currentQuestion].correctAnswer){
+    if (questions[currentQuestion].answers[answer] === questions[currentQuestion].correctAnswer) {
         // answer is correct, moved to next question and 10 points are awarded for it
+        userScore += 10;
     } else {
-        // answer is wrong - minus 6 seconds and then move on to the next question
+        // answer is wrong - minus 6 seconds and then move on to the next question/call wrongAnswer
+        wrongAnswer();
     }
-    currentQuestion = currentQuestion + 1;
-    displayQuestion(currentQuestion);
+
+    if (currentQuestion === 9) {
+        quizTimer = 0;
+    } else {
+        currentQuestion = currentQuestion + 1;
+        displayQuestion(currentQuestion);
+    }
 }
 
 
@@ -36,41 +44,44 @@ function timerStart() {
     document.getElementById("answer-4").classList.remove("hide");
     displayQuestion(0);
     // create function to start the 60 second timer
-    var downloadTimer = setInterval(function(){
-        if(quizTimer <= 0){
-          clearInterval(downloadTimer);
-          window.alert("The time limit has been reached. GAME OVER!");
-        // ^created prompt message that pops up once the time limit is reached (hits 0) before all of the questions are answered^  
+    var downloadTimer = setInterval(function () {
+        if (quizTimer <= 0) {
+            clearInterval(downloadTimer);
+            window.alert("GAME OVER!");
+            // ^created prompt message that pops up once the time limit is reached (hits 0) before all of the questions are answered^  
 
-        // function storeName() {
-        //     // Initials storage after timer runs out 2-3 characters in length
-        //     var userInitials = window.prompt("Please add your initials to be saved in the highscores").toLowerCase(); 
-            
-        //     // Looping through user input-making sure only numeric values between 8-128 are present
-        //     if (containsOnlyNumbers(userInitials)){
-        //       // success
-        //       // user entered numbers- now checking initials are between 2-3 characters long 
-        //       userInitials = parseInt(userInitials)
-        //       if (userInitials >= 2 && userInitials <= 3) {
-        //       // user has entered an acceptable initials length between 2-3
-        //         userInitialsResult = userInitials;
-        //       } else {
-        //         window.alert("Please enter letters or numbers between 2-3 characters in length")
-        //         generateHighscore();
-        //       }
-        //     } else {
-        //       window.alert("Please enter letters/number values only")
-        //       generateHighscore();
-        //     }
-
-
+            // Initials storage after timer runs out 2-3 characters in length
+            var userInitials = window.prompt("Please add your initials to be saved in the highscores").toLowerCase();
+            generateHighscore(userInitials);
         }
         document.getElementById("time").innerHTML = quizTimer;
         console.log(document.getElementById("time").innerHTML);
         quizTimer -= 1;
     }, 1000);
-}  
+}
 
+function generateHighscore(initials) {
+    var emptyNames = [];
+    var storedNames = JSON.parse(localStorage.getItem("scores"));
+    console.log(storedNames);
+    // null check
+    if (storedNames == null) {
+        emptyNames.push({ userInitials: initials, userScores: userScore });
+        localStorage.setItem("scores", JSON.stringify(emptyNames));
+    } else {
+        storedNames.push({ userInitials: initials, userScores: userScore });
+        localStorage.setItem("scores", JSON.stringify(storedNames));
+    }
+    // storing userInitials & userScore
+}
+
+// Linking the highscores page with the local storage scores/initials
+function setUpHighscores() {
+    console.log("test");
+    var storedNames = JSON.parse(localStorage.getItem("scores"));
+
+    document.getElementById("winners-scores").innerHTML = storedNames;
+}
 
 
 // Question 1/10 - timer starts at 60 seconds. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
@@ -78,77 +89,77 @@ function timerStart() {
 var questions = [
     {
         question: "Question One: Arrays in JavaScript are defined by which of the following statements?",
-        answers: ["It is an ordered list of values", "It is an ordered list of objects", "It is an ordered list of strings","It is an ordered list of functions"],
+        answers: ["It is an ordered list of values", "It is an ordered list of objects", "It is an ordered list of strings", "It is an ordered list of functions"],
         correctAnswer: "It is an ordered list of values",
     },
-    
+
     // Question 2/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
-    
+
     {
         question: "Question Two: Javascript is an _______ language",
-        answers: ["Object-Oriented", "Object-Based", "Procedural","Static"],
+        answers: ["Object-Oriented", "Object-Based", "Procedural", "Static"],
         correctAnswer: "Object-Based",
     },
-    
+
     // Question 3/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
-    
+
     {
         question: "Question Three: Which of the following keywords is used to define a variable in Javascript?",
-        answers: ["var", "let", "Both A & B","Yoo here's a variable dude"],
+        answers: ["var", "let", "Both A & B", "Yoo here's a variable dude"],
         correctAnswer: "Both A & B",
     },
-    
+
     // Question 4/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
-    
-   {
+
+    {
         question: "Question Four: Which function is used to serialize an object into a JSON string in Javascript?",
-        answers: ["stringify()", "parse()", "convert()","serialization()"],
+        answers: ["stringify()", "parse()", "convert()", "serialization()"],
         correctAnswer: "stringify()",
     },
-    
+
     // Question 5/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
-    
+
     {
         question: "Question Five: How do you stop an interval timer in Javascript?",
-        answers: ["clearTimer", "intervalOver", "timerStop","clearInterval"],
+        answers: ["clearTimer", "intervalOver", "timerStop", "clearInterval"],
         correctAnswer: "clearInterval",
     },
-    
+
     // Question 6/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
-    
-     {
+
+    {
         question: "Question Six: Which symbol is used separate JavaScript statements?",
         answers: ["Comma (,)", "Colon (:)", "Hyphen (_)", "Semicolon (;)"],
         correctAnswer: "Semicolon (;)",
     },
-    
+
     // Question 7/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
-    
-     {
+
+    {
         question: "Question Seven: What is the tag we use to put Javascript inside HTML?",
-        answers: ["js", "javascript", "script","scripting"],
+        answers: ["js", "javascript", "script", "scripting"],
         correctAnswer: "'<script>'",
     },
-    
+
     // Question 8/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
-    
-     {
+
+    {
         question: "Question Eight: DOM stands for ____?",
-        answers: ["Document Object Model", "Document Object Manipulation", "Document Objective Model","It's short for Dominic, the creator of the DOM"],
+        answers: ["Document Object Model", "Document Object Manipulation", "Document Objective Model", "It's short for Dominic, the creator of the DOM"],
         correctAnswer: "Document Object Model",
     },
-    
+
     // Question 9/10 - timer is live. Once answered you are prompted with the next question in line. Your score from this question is stored for the total score at the end. 
-    
+
     {
         question: "Question Nine: Which method is used for debuging purposes in javascript?",
-        answers: ["console.message(hello)", "console.log(hello)", "log(hello)","message(hello)"],
+        answers: ["console.message(hello)", "console.log(hello)", "log(hello)", "message(hello)"],
         correctAnswer: "console.log()",
     },
-    
+
     // Question 10/10 - timer is live. Once answered you finihsed with the coding test. Your score from this question is added to your scores from questions 1-9 to get the total score. 
-    
-     {
+
+    {
         question: "Question Ten: Which of the following type of variables takes precedence over other if names are same?",
         answers: ["Global", "Main", "Local", "Preceding"],
         correctAnswer: "Local",
